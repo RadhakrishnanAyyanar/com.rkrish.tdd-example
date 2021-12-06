@@ -65,4 +65,16 @@ public class CalculatorTest {
         test.add(";\n");
     }
 
+    @Test(expected = Calculator.NegativeNotAllowed.class)
+    public void shouldReturnErrorForNegative() {
+        Calculator test = new Calculator();
+        test.add("-1");
+    }
+
+    @Test(expected = Calculator.NegativeNotAllowed.class)
+    public void shouldReturnErrorForMultipleNegative() {
+        Calculator test = new Calculator();
+        test.add("1,2,-3,4,-5,6,7,-3");
+    }
+
 }
