@@ -41,5 +41,16 @@ public class CalculatorTest {
         int result = test.add("3,5,3,");
     }
 
+    @Test
+    public void shouldReturnAdditionForValidNewLineDelimiter() {
+        Calculator test = new Calculator();
+        assertEquals(15, test.add("1,2\n3,4\n5"));
+    }
+
+    @Test(expected = Calculator.InvalidInputException.class)
+    public void shouldReturnExceptionForInvalidDelimiters() {
+        Calculator test = new Calculator();
+        int result = test.add("3,5,\n3,");
+    }
 
 }
