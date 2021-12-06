@@ -29,10 +29,16 @@ public class CalculatorTest {
         assertEquals(8, test.add("3,5"));
     }
 
+    @Test
+    public void shouldReturnAdditionOfMultipleNumbers() {
+        Calculator test = new Calculator();
+        assertEquals(20, test.add("3,5,4,6,2"));
+    }
+
     @Test(expected = Calculator.InvalidInputException.class)
     public void shouldReturnExceptionForInvalidInput() {
         Calculator test = new Calculator();
-        int result = test.add("3,5,3");
+        int result = test.add("3,5,3,");
     }
 
 
